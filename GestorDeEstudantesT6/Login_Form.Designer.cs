@@ -92,6 +92,7 @@
             this.textBoxSenha.Name = "textBoxSenha";
             this.textBoxSenha.Size = new System.Drawing.Size(163, 20);
             this.textBoxSenha.TabIndex = 5;
+            this.textBoxSenha.UseSystemPasswordChar = true;
             // 
             // buttonLogin
             // 
@@ -129,6 +130,7 @@
             this.Controls.Add(this.pictureBoxUsuario);
             this.Controls.Add(this.label1);
             this.Name = "Login_Form";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SGA - Acessar";
             this.Load += new System.EventHandler(this.Login_Form_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUsuario)).EndInit();

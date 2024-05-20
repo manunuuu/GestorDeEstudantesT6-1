@@ -39,7 +39,29 @@ namespace GestorDeEstudantesT6
 
             MySqlDataAdapter meuAdaptadorSql = new MySqlDataAdapter();
             DataTable minhaTabela = new DataTable();
-            MySqlCommand meuComandoSql = new MySqlCommand("", meuBancoDeDados.getConexao);
+            MySqlCommand meuComandoSql = 
+                new MySqlCommand("SELECT * FROM `usuarios` WHERE `nome_de_usuario` = @usuario AND `senha` = @senha", 
+                meuBancoDeDados.getConexao);
+
+            meuComandoSql.Parameters.Add("@usuario", MySqlDbType.VarChar).Value = 
+                textBoxUsuario.Text;
+            meuComandoSql.Parameters.Add("@senha", MySqlDbType.VarChar).Value = 
+                textBoxSenha.Text;
+
+            meuAdaptadorSql.SelectCommand = meuComandoSql;
+
+            meuAdaptadorSql.Fill(minhaTabela);
+
+            if (minhaTabela.Rows.Count > 0)
+            {
+                //MessageBox.Show("Existem dados!");
+                this.DialogResult = DialogResult.OK;
+            }
+            else
+            {
+                MessageBox.Show("Usuário ou senha inválidos.", 
+                    "Erro de login", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
