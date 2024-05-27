@@ -16,7 +16,7 @@ namespace GestorDeEstudantesT6
             DateTime nascimento, string telefone, string genero,
             string endereco, MemoryStream foto)
         {
-            MySqlCommand comando = new MySqlCommand("", meuBancoDeDados.getConexao);
+            MySqlCommand comando = new MySqlCommand("INSERT INTO `estudantes`(`nome`, `sobrenome`, `nascimento`, `genero`, `telefone`, `endereco`, `foto`) VALUES (@nome,@sobrenome,@nascimento,@genero,@telefone,@endereco,@foto)", meuBancoDeDados.getConexao);
             return true;
         }
     }
