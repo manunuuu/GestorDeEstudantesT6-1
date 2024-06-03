@@ -24,9 +24,22 @@ namespace GestorDeEstudantesT6
             comando.Parameters.Add("@genero", MySqlDbType.VarChar).Value = genero;
             comando.Parameters.Add("@telefone", MySqlDbType.VarChar).Value = telefone;
             comando.Parameters.Add("@endereco", MySqlDbType.Text).Value = endereco;
-            comando.Parameters.Add("@foto", MySqlDbType.LongBlob).Value = foto;
+            comando.Parameters.Add("@foto", MySqlDbType.LongBlob).Value = foto.ToArray();
 
 
+            meuBancoDeDados.abrirConexao();
+
+            if (comando.ExecuteNonQuery() == 1)
+            {
+                meuBancoDeDados.fecharConexao();
+                return true;
+            }
+            else
+            {
+                meuBancoDeDados.fecharConexao();
+                return false;
+            }
+            
         }
     }
 }
