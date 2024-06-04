@@ -19,6 +19,16 @@ namespace GestorDeEstudantesT6
 
         private void buttonCadastrar_Click(object sender, EventArgs e)
         {
+            // Cria um estudante.
+            Estudante estudante = new Estudante();
+            // Variáveis auxiliares.
+            string nome = textBoxNome.Text;
+            string sobrenome = textBoxSobrenome.Text;
+            DateTime nascimento = dateTimePickerNascimento.Value;
+            string telefone = textBoxTelefone.Text;
+            string endereco = textBoxEndereco.Text;
+            string genero = "Feminino";
+
 
         }
 
@@ -28,13 +38,34 @@ namespace GestorDeEstudantesT6
             OpenFileDialog selecionarImagem = new OpenFileDialog();
 
             selecionarImagem.Filter = "Selecione a foto (*.jpg;*.png;*.gif)|*.jpg;*.png;*.gif";
-        
-            selecionarImagem.ShowDialog();
+
+            if (selecionarImagem.ShowDialog() == DialogResult.OK)
+            {
+                pictureBoxFoto.Image = Image.FromFile(selecionarImagem.FileName);
+            }
         }
 
         private void buttonCancelar_Click(object sender, EventArgs e)
         {
             Close();
         }
+
+        bool Verificar()
+        {
+            if ((textBoxNome.Text.Trim() == "") ||
+                (textBoxSobrenome.Text.Trim() == "") ||
+                (textBoxTelefone.Text.Trim() == "") ||
+                (textBoxEndereco.Text.Trim() == "") ||
+                (pictureBoxFoto.Image == null))
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+
     }
 }
