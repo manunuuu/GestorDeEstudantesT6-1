@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,7 +30,43 @@ namespace GestorDeEstudantesT6
             string endereco = textBoxEndereco.Text;
             string genero = "Feminino";
 
+            // Verifica se outro gênero está selecionado.
+            if(radioButtonMasculino.Checked)
+            {
+                genero = "Masculino";
+            }
 
+            MemoryStream foto = new MemoryStream();
+
+            // Precisamos verificar se o estudante tem
+            // mais de 10 anos e menos de 100.
+            int anoDeNascimento = dateTimePickerNascimento.Value.Year;
+            int anoAtual = DateTime.Now.Year;
+
+            if (((anoAtual - anoDeNascimento) < 10) ||
+                ((anoAtual - anoDeNascimento) > 100))
+            {
+                MessageBox.Show("Precisa ter entre 10 e 100 anos.",
+                    "Idade Inválida", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+            else if (Verificar())
+            {
+                pictureBoxFoto.Image.Save(foto, 
+                    pictureBoxFoto.Image.RawFormat);
+
+                if (estudante.inserirEstudante(nome, sobrenome, nascimento,
+                    telefone, genero, endereco, foto))
+                {
+                    MessageBox.Show("Novo aluno cadastrado!","Sucesso!", 
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Aluno não cadastrado!", "Falha!",
+                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
         }
 
         private void buttonEnviarFoto_Click(object sender, EventArgs e)
