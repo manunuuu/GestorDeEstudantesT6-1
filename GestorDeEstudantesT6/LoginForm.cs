@@ -11,9 +11,9 @@ using MySql.Data.MySqlClient;
 
 namespace GestorDeEstudantesT6
 {
-    public partial class Login_Form : Form
+    public partial class LoginForm : Form
     {
-        public Login_Form()
+        public LoginForm()
         {
             InitializeComponent();
         }

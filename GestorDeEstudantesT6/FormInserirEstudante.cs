@@ -67,6 +67,11 @@ namespace GestorDeEstudantesT6
                         MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
+            else
+            {
+                MessageBox.Show("Campos não preenchidos!", "Erro!", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void buttonEnviarFoto_Click(object sender, EventArgs e)
