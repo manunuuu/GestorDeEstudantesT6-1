@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,20 @@ namespace GestorDeEstudantesT6
         public FormListaDeEstudantes()
         {
             InitializeComponent();
+        }
+
+        Estudante estudante = new Estudante();
+
+        private void FormListaDeEstudantes_Load(object sender, EventArgs e)
+        {
+            // Preenche a tabela com as informações do banco de dados:
+            MySqlCommand comando = new MySqlCommand("SELECT * FROM `estudantes`"); // Comando para selecionar os dados da tabela estudantes.
+            dataGridViewListaDeEstudantes.ReadOnly = true; // Define a tabela como sendo "somente leitura"
+            DataGridViewImageColumn colunaDeFotos = new DataGridViewImageColumn(); // Cria a coluna que irá receber as fotos.
+            dataGridViewListaDeEstudantes.RowTemplate.Height = 80; // Definir a altura máxima das linhas da tabela em 80 pixels.
+            dataGridViewListaDeEstudantes.DataSource = estudante.getEstudantes(comando); // Define a fonte de dados da tabela (de onde virão os dados).
+            colunaDeFotos = (DataGridViewImageColumn) dataGridViewListaDeEstudantes.Columns[7]; // Determina QUEM será a coluna de fotos.
+            
         }
     }
 }
