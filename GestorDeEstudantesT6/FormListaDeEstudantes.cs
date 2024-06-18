@@ -29,7 +29,18 @@ namespace GestorDeEstudantesT6
             dataGridViewListaDeEstudantes.RowTemplate.Height = 80; // Definir a altura máxima das linhas da tabela em 80 pixels.
             dataGridViewListaDeEstudantes.DataSource = estudante.getEstudantes(comando); // Define a fonte de dados da tabela (de onde virão os dados).
             colunaDeFotos = (DataGridViewImageColumn) dataGridViewListaDeEstudantes.Columns[7]; // Determina QUEM será a coluna de fotos.
-            
+            colunaDeFotos.ImageLayout = DataGridViewImageCellLayout.Stretch; // Estica as imagens na coluna de fotos.
+            dataGridViewListaDeEstudantes.AllowUserToAddRows = false;
+        }
+
+        private void dataGridViewListaDeEstudantes_DoubleClick(object sender, EventArgs e)
+        {
+            // Abre as informações do aluno selecionado em uma nova janela.
+        }
+
+        private void buttonAtualizar_Click(object sender, EventArgs e)
+        {
+            // Atualiza a lista de alunos.
         }
     }
 }
