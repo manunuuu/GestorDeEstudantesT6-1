@@ -62,6 +62,7 @@
             this.buttonCadastrar.TabIndex = 36;
             this.buttonCadastrar.Text = "Salvar";
             this.buttonCadastrar.UseVisualStyleBackColor = true;
+            this.buttonCadastrar.Click += new System.EventHandler(this.buttonCadastrar_Click);
             // 
             // buttonCancelar
             // 
@@ -72,6 +73,7 @@
             this.buttonCancelar.TabIndex = 35;
             this.buttonCancelar.Text = "Apagar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
+            this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
             // 
             // buttonEnviarFoto
             // 

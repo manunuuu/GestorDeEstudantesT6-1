@@ -29,5 +29,15 @@ namespace GestorDeEstudantesT6
                 pictureBoxFoto.Image = Image.FromFile(selecionarImagem.FileName);
             }
         }
+
+        private void buttonCadastrar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonCancelar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
