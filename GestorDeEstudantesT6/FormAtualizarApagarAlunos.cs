@@ -35,7 +35,7 @@ namespace GestorDeEstudantesT6
 
         }
 
-        private void buttonCancelar_Click(object sender, EventArgs e)
+        private void buttonApagar_Click(object sender, EventArgs e)
         {
 
         }
