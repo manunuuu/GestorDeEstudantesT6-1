@@ -30,7 +30,7 @@ namespace GestorDeEstudantesT6
             }
         }
 
-        private void buttonCadastrar_Click(object sender, EventArgs e)
+        private void buttonSalvar_Click(object sender, EventArgs e)
         {
 
         }
