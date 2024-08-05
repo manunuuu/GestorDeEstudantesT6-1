@@ -44,5 +44,10 @@ namespace GestorDeEstudantesT6
         {
             // Atualiza a lista de alunos.
         }
+
+        private void dataGridViewListaDeEstudantes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

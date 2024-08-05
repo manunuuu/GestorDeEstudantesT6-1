@@ -39,5 +39,10 @@ namespace GestorDeEstudantesT6
         {
 
         }
+
+        private void textBoxId_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
