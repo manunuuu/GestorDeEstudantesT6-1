@@ -108,6 +108,9 @@ namespace GestorDeEstudantesT6
             }
         }
 
+        private void FormInserirEstudante_Load(object sender, EventArgs e)
+        {
 
+        }
     }
 }

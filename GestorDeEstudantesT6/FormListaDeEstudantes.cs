@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -57,8 +58,30 @@ namespace GestorDeEstudantesT6
                 formAtualizarApagarAlunos.radioButtonMasculino.Checked = true;
             }
 
+            formAtualizarApagarAlunos.textBoxTelefone.Text =
+                dataGridViewListaDeEstudantes.CurrentRow.Cells[5].Value.ToString();
+            formAtualizarApagarAlunos.textBoxEndereco.Text =
+                dataGridViewListaDeEstudantes.CurrentRow.Cells[6].Value.ToString();
+
+            // A foto do aluno:
+            byte[] imagem;
+            imagem = 
+                (byte[])dataGridViewListaDeEstudantes.CurrentRow.Cells[7].Value;
+            
+            MemoryStream foto = new MemoryStream(imagem);
+
+            formAtualizarApagarAlunos.pictureBoxFoto.Image =
+                Image.FromStream(foto);
+
             formAtualizarApagarAlunos.Show();
         }
+
+
+
+
+
+
+
 
         private void buttonAtualizar_Click(object sender, EventArgs e)
         {
