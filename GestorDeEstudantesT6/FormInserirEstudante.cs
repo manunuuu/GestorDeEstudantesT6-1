@@ -20,9 +20,9 @@ namespace GestorDeEstudantesT6
 
         private void buttonCadastrar_Click(object sender, EventArgs e)
         {
-            // Cria um estudante.
+           
             Estudante estudante = new Estudante();
-            // Variáveis auxiliares.
+           
             string nome = textBoxNome.Text;
             string sobrenome = textBoxSobrenome.Text;
             DateTime nascimento = dateTimePickerNascimento.Value;
@@ -30,7 +30,6 @@ namespace GestorDeEstudantesT6
             string endereco = textBoxEndereco.Text;
             string genero = "Feminino";
 
-            // Verifica se outro gênero está selecionado.
             if(radioButtonMasculino.Checked)
             {
                 genero = "Masculino";
@@ -38,8 +37,7 @@ namespace GestorDeEstudantesT6
 
             MemoryStream foto = new MemoryStream();
 
-            // Precisamos verificar se o estudante tem
-            // mais de 10 anos e menos de 100.
+            
             int anoDeNascimento = dateTimePickerNascimento.Value.Year;
             int anoAtual = DateTime.Now.Year;
 
@@ -76,7 +74,7 @@ namespace GestorDeEstudantesT6
 
         private void buttonEnviarFoto_Click(object sender, EventArgs e)
         {
-            // exibe uma janela para procurar a imagem.
+            
             OpenFileDialog selecionarImagem = new OpenFileDialog();
 
             selecionarImagem.Filter = "Selecione a foto (*.jpg;*.png;*.gif)|*.jpg;*.png;*.gif";

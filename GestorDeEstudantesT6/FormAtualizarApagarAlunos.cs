@@ -44,5 +44,10 @@ namespace GestorDeEstudantesT6
         {
 
         }
+
+        private void FormAtualizarApagarAlunos_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
