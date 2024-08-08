@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -71,8 +72,30 @@ namespace GestorDeEstudantesT6
 >>>>>>> 6dddbb7347ba3bf2a6b1185b2fd0ad91449cf57d
             }
 
+            formAtualizarApagarAlunos.textBoxTelefone.Text =
+                dataGridViewListaDeEstudantes.CurrentRow.Cells[5].Value.ToString();
+            formAtualizarApagarAlunos.textBoxEndereco.Text =
+                dataGridViewListaDeEstudantes.CurrentRow.Cells[6].Value.ToString();
+
+            // A foto do aluno:
+            byte[] imagem;
+            imagem = 
+                (byte[])dataGridViewListaDeEstudantes.CurrentRow.Cells[7].Value;
+            
+            MemoryStream foto = new MemoryStream(imagem);
+
+            formAtualizarApagarAlunos.pictureBoxFoto.Image =
+                Image.FromStream(foto);
+
             formAtualizarApagarAlunos.Show();
         }
+
+
+
+
+
+
+
 
         private void buttonAtualizar_Click(object sender, EventArgs e)
         {
